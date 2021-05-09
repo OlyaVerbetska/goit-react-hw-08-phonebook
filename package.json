@@ -8,7 +8,6 @@
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
-    "json-server": "^0.16.3",
     "modern-normalize": "^1.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -27,8 +26,7 @@
     "predeploy": "npm run build",
     "deploy": "netlify deploy -p",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "api-server": "json-server --delay 200 --watch db.json --port 3004"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

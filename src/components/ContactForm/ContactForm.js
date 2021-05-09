@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import styles from '../ContactForm/ContactForm.module.css';
 
-import {contactOperations,contactSelectors } from '../../redux/contacts'
+import {contactsOperations,contactsSelectors } from '../../redux/contacts'
 
 
 
@@ -84,10 +84,10 @@ class ContactForm extends Component {
 }
 
 const mapStateToProps = state => ({
-  existContacts: contactSelectors.getContacts(state),
+  existContacts: contactsSelectors.getContacts(state),
 });
 const mapDispatchToProps = dispatch => ({
-  onSubmit: data => dispatch(contactOperations.addContact(data)),
+  onSubmit: data => dispatch(contactsOperations.addContact(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);

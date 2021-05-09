@@ -1,12 +1,15 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-import {contactReducer} from './contacts';
+import {authReducer} from './auth'
+import {contactsReducer} from './contacts';
+
 
 const middleware = getDefaultMiddleware();
 //store
 
 const store = configureStore({
   reducer: {
-    contacts: contactReducer,
+    auth:authReducer,
+    //contacts: contactsReducer,
   },
   middleware,
   // комментируем, чтоб было удобно проверять

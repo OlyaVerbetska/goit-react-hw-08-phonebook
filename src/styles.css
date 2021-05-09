@@ -1,7 +1,7 @@
 .container {
   margin: 0 auto;
   font-family: 'Truculenta', sans-serif;
-  max-width: 600px;
+  max-width: 900px;
 }
 .title {
   font-size: 40px;
@@ -17,7 +17,7 @@
 }
 .linkHome {
   display: block;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .active-linkHome {
@@ -25,4 +25,18 @@
   font-size: 30px;
   color:red;
   
+}
+
+.form-field {
+  display: block;
+  margin-top: 15px;
+  font-size: 20px;
+}
+
+.AppBar {
+  border: 1px solid orange;
+ 
+}
+.user-menu {
+  font-size: 25px;
 }

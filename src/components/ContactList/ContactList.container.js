@@ -2,17 +2,17 @@ import { connect } from 'react-redux';
 
 import ContactList from '../ContactList/ContactList';
 
-import {contactOperations,contactSelectors } from '../../redux/contacts'
+import {contactsOperations,contactsSelectors } from '../../redux/contacts'
 
 
 const mapDispatchToProps = dispatch => ({
-  onDeleteContact: id => dispatch(contactOperations.deleteContact(id)),
-  fetchContacts: () => dispatch(contactOperations.fetchContacts()),
+  onDeleteContact: id => dispatch(contactsOperations.deleteContact(id)),
+  fetchContacts: () => dispatch(contactsOperations.fetchContacts()),
 });
 
 const mapStateToProps = state => ( {
-  contactsForList: contactSelectors.getVisibleContacts(state),
-  isLoadingContacts: contactSelectors.getLoading(state),
+  contactsForList: contactsSelectors.getVisibleContacts(state),
+  isLoadingContacts: contactsSelectors.getLoading(state),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
