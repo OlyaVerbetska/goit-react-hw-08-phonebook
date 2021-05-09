@@ -5,10 +5,10 @@ import ContactList from '../ContactList/ContactList';
 import {contactsOperations,contactsSelectors } from '../../redux/contacts'
 
 
-const mapDispatchToProps = dispatch => ({
-  onDeleteContact: id => dispatch(contactsOperations.deleteContact(id)),
-  fetchContacts: () => dispatch(contactsOperations.fetchContacts()),
-});
+const mapDispatchToProps = {
+  onDeleteContact: contactsOperations.deleteContact,
+  fetchContacts: contactsOperations.fetchContacts,
+};
 
 const mapStateToProps = state => ( {
   contactsForList: contactsSelectors.getVisibleContacts(state),

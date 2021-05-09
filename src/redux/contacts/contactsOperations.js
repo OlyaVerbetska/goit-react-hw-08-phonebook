@@ -5,10 +5,10 @@ const fetchContacts = () => async dispatch => {
   dispatch(actions.fetchContactsRequest());
 
   try {
-    const { data } = await axios.get(`/contacts`);
+    const { data } = await axios.get('/contacts');
     dispatch(actions.fetchContactsSuccess(data));
   } catch (error) {
-    dispatch(actions.fetchContactsError(error));
+    dispatch(actions.fetchContactsError(error.message));
   }
 };
 
@@ -24,7 +24,7 @@ const addContact = ({ name, number }) => async dispatch => {
     const { data } = await axios.post('/contacts', contact);
     dispatch(actions.addContactSuccess(data));
   } catch (error) {
-    dispatch(actions.addContactError(error));
+    dispatch(actions.addContactError(error.message));
   }
 };
 
@@ -34,26 +34,9 @@ const deleteContact = id => async dispatch => {
     await axios.delete(`/contacts/${id}`);
     dispatch(actions.deleteContactSuccess(id));
   } catch (error) {
-    dispatch(actions.deleteContactError(error));
+    dispatch(actions.deleteContactError(error.message));
   }
 };
 
 //eslint-disable-next-line
 export default { fetchContacts, addContact, deleteContact };
-
-
-
-// axios
-//   .get(`/contacts`)
-//   .then(({ data }) => dispatch(actions.fetchContactsSuccess(data)))
-//   .catch(error => dispatch(actions.fetchContactsError(error)));
-
-// axios
-//   .post('/contacts', contact)
-//   .then(({ data }) => dispatch(actions.addContactSuccess(data)))
-//   .catch(error => dispatch(actions.addContactError(error)));
-
-// axios
-//   .delete(`/contacts/${id}`)
-//   .then(() => dispatch(actions.deleteContactSuccess(id)))
-//   .catch(error => dispatch(actions.deleteContactError(error)));

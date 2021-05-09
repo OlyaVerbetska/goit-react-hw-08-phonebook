@@ -56,7 +56,7 @@ ContactList.propTypes = {
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       number: PropTypes.string.isRequired,
-      isLoadingContacts:PropTypes.bool.isRequired
+      isLoadingContacts:PropTypes.bool,
     }),
   ).isRequired,
 };

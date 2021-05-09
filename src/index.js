@@ -6,13 +6,16 @@ import App from './App';
 import 'modern-normalize/modern-normalize.css';
 import store from './redux/store';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store.store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <PersistGate loading={null} persistor={store.persistor}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </PersistGate>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root'),

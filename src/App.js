@@ -1,22 +1,17 @@
-import { Component } from 'react';
+import { Component, Suspense, lazy} from 'react';
 import { Switch, Route } from 'react-router-dom';
-import{Suspense, lazy} from 'react';
+
+import { connect } from 'react-redux';
+
 
 import routes from './routes';
+import {authOperations} from './redux/auth'
 
 import AppBar from './components/AppBar'
 
 import './styles.css';
 
-// import HomeView from './views/HomeView';
-// import RegisterView from './views/RegisterView';
-// import LoginView from './views/LoginView';
-// import ContactsView from './views/ContactsView';
-// import NotFoundView from './views/NotFoundView';
 
-// import ContactForm from './components/ContactForm';
-// import ContactList from './components/ContactList';
-// import Filter from './components/Filter';
 
 const HomeView = lazy(()=> import('./views/HomeView' /* webpackChunkName: "home-page" */));
 const RegisterView = lazy(()=> import('./views/RegisterView' /* webpackChunkName: "register-page" */));
@@ -28,6 +23,9 @@ const NotFoundView = lazy(()=> import ('./views/NotFoundView' /* webpackChunkNam
 
 
 class App extends Component {
+  componentDidMount (){
+    this.props.onRefreshUser();
+  }
   render() {
     return (
       <div className="container">
@@ -43,13 +41,19 @@ class App extends Component {
         </Switch>
         </Suspense>
 
-        {/* <h1 className="title">Phonebook</h1>
-        <ContactForm />
-        <Filter />
-        <ContactList /> */}
+       
       </div>
     );
   }
 }
 
-export default App;
+const mapDispatchToProps = {
+   
+  onRefreshUser: authOperations.getCurrentUser,
+
+}
+
+export default connect(null, mapDispatchToProps)(App);
+// const mapDispatchToProps = dispatch => ({
+//   onSubmit: data => dispatch(contactsOperations.addContact(data)),
+// });

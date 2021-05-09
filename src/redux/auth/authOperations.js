@@ -45,7 +45,21 @@ const logOut = () => async dispatch => {
     dispatch(authActions.logoutError(error.message));
   }
 };
-const getCurrentUser = something => dispatch => {};
+const getCurrentUser = () => async (dispatch, getState) => {
+  const {auth:{token:persistedToken}} = getState();
+  if(!persistedToken) {
+    return;
+  }
+  token.set(persistedToken);
+  dispatch(authActions.getCurrentUserRequest());
+  try {
+    const response = await axios.get('/users/current');
+    console.log(response.data)
+    dispatch(authActions.getCurrentUserSuccess(response.data));
+  } catch (error) {
+    dispatch(authActions.getCurrentUserError(error.message));
+  }
+};
 
 //eslint-disable-next-line
 export default { register, logIn, logOut, getCurrentUser };
