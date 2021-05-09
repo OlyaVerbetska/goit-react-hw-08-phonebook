@@ -15,3 +15,14 @@
   text-align: center;
   margin: 25px 0 15px 0;
 }
+.linkHome {
+  display: block;
+  font-size: 30px;
+}
+
+.active-linkHome {
+  display: block;
+  font-size: 30px;
+  color:red;
+  
+}
