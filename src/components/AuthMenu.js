@@ -1,8 +1,7 @@
 import routes from '../routes';
 import { NavLink } from 'react-router-dom';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
+
 
 const AuthMenu = ({ userMail, onLogout }) => (
   <Toolbar

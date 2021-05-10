@@ -2,9 +2,8 @@ import '../../src/styles.css';
 import { connect } from 'react-redux';
 import { authSelectors, authOperations } from '../redux/auth';
 import Toolbar from '@material-ui/core/Toolbar';
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+
 
 const UserMenu = ({ userMail, onLogout }) => (
   <Toolbar
@@ -14,8 +13,7 @@ const UserMenu = ({ userMail, onLogout }) => (
     }}
   >
     <p
-      // className="user-menu"
-      style={{
+           style={{
         marginRight: '30px',
       }}
     >

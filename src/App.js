@@ -39,7 +39,7 @@ class App extends Component {
         <div className="container">
         <Suspense fallback={<h1>Loading...</h1>}>
           <Switch>
-            <Route path={routes.home} exact component={HomeView} />
+            <Route exact path={routes.home}  component={HomeView} />
             <PublicRoute path={routes.register} component={RegisterView} redirectTo = {routes.contacts} restricted/>
             <PublicRoute path={routes.login} component={LoginView} redirectTo = {routes.contacts} restricted/>
             <PrivateRoute path={routes.contacts} component={ContactsView} redirectTo = {routes.login}/>

@@ -1,8 +1,9 @@
 import { v4 as uuidv4 } from 'uuid';
-import styles from '../Filter/Filter.module.css';
-import { connect } from 'react-redux';
 
-import {contactsActions,contactsSelectors } from '../../redux/contacts'
+import { connect } from 'react-redux';
+import {contactsActions,contactsSelectors } from '../../redux/contacts';
+
+import styles from '../Filter/Filter.module.css';
 
 
 const Filter = ({ onFilterValue, value }) => (
