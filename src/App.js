@@ -8,7 +8,7 @@ import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 
 import { authOperations } from './redux/auth';
-import AppBar from './components/AppBar';
+import AppBarMy from './components/AppBarMy';
 
 import './styles.css';
 
@@ -35,7 +35,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <AppBar />
+        <AppBarMy />
         <Suspense fallback={<h1>Loading...</h1>}>
           <Switch>
             <Route path={routes.home} exact component={HomeView} />

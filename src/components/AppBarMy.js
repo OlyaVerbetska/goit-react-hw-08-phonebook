@@ -4,16 +4,22 @@ import { connect } from 'react-redux';
 
 import { authSelectors } from '../redux/auth';
 
-import UserMenu from '../components/UserMenu';
-import '../../src/styles.css';
+import UserMenu from './UserMenu';
+// import '../../src/styles.css';
+//styles
+//import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
-const AppBar = ({ isAuth }) => (
-  <div className="AppBar">
+
+const AppBarMy = ({ isAuth }) => (
+  <Toolbar position = "relative"  >
     {isAuth ? (
       <UserMenu />
     ) : (
       <ul>
         {' '}
+   
         <NavLink
           to={routes.register}
           className="linkHome"
@@ -21,6 +27,9 @@ const AppBar = ({ isAuth }) => (
         >
           Register
         </NavLink>
+
+
+      
         <NavLink
           to={routes.login}
           className="linkHome"
@@ -40,11 +49,11 @@ const AppBar = ({ isAuth }) => (
         Contacts
       </NavLink>
     )}
-  </div>
+  </Toolbar>
 );
 
 const mapStateToProps = state => ({
   isAuth: authSelectors.getIsAuthenticated(state),
 });
 
-export default connect(mapStateToProps)(AppBar);
+export default connect(mapStateToProps)(AppBarMy);

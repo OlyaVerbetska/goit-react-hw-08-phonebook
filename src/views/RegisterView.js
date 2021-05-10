@@ -1,10 +1,11 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import {authOperations} from '../redux/auth';
+import { authOperations } from '../redux/auth';
 // styles
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 
-  //=================================
 
 class RegisterView extends Component {
   state = {
@@ -30,50 +31,57 @@ class RegisterView extends Component {
       <div>
         <h1 className="title">Register Page</h1>
 
-        <form
-          onSubmit={this.handleSubmit}
-        //  className={classes.form}
-          autoComplete="off"
-        >
-          <label className="form-field">
-            Name
-            <input
-              className="form-field"
-              type="text"
-              name="name"
-              placeholder="Enter your name"
-              value={name}
-              onChange={this.handleChange}
-            />
-          </label>
+        <form   onSubmit={this.handleSubmit} autoComplete="off">
+          <TextField
+            type="text"
+            name="name"
+            placeholder="Enter your name"
+            value={name}
+            onChange={this.handleChange}
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="name"
+            label="Name"
+            autoComplete="off"
+            autoFocus
+          />
 
-          <label className="form-field">
-            Email
-            <input
-              className="form-field"
-              type="email"
-              name="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={this.handleChange}
-            />
-          </label>
+          <TextField
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={this.handleChange}
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email"
+            autoComplete="off"
+                       
+          />
 
-          <label className="form-field">
-            Password
-            <input
-              className="form-field"
-              type="text"
-              name="password"
-              placeholder="Create password"
-              value={password}
-              onChange={this.handleChange}
-            />
-          </label>
+          <TextField
+            type="password"
+            name="password"
+            placeholder="Create password"
+            value={password}
+            onChange={this.handleChange}
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            label="Password"
+            id="password"
+            autoComplete="off"
+          />
 
-          <button type="submit" className="form-field">
+          <Button variant="contained" color="primary" type="submit" className="form-field">
             Register
-          </button>
+          </Button>
         </form>
       </div>
     );
@@ -81,8 +89,7 @@ class RegisterView extends Component {
 }
 
 const mapDispatchToProps = {
-//  onRegister: data => dispatch(authOperations.register(data)),
- onRegister:authOperations.register,
+  onRegister: authOperations.register,
 };
-
+//eslint-disable-next-line
 export default connect(null, mapDispatchToProps)(RegisterView);
