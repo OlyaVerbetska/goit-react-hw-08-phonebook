@@ -1,15 +1,11 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import {contactsOperations,contactsSelectors } from '../../redux/contacts'
-// import PropTypes from 'prop-types';
+import { contactsOperations, contactsSelectors } from '../../redux/contacts';
+import PropTypes from 'prop-types';
 
 import { v4 as uuidv4 } from 'uuid';
 
 import styles from '../ContactForm/ContactForm.module.css';
-
-
-
-
 
 class ContactForm extends Component {
   nameInputId = uuidv4();
@@ -90,8 +86,22 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = {
   onSubmit: contactsOperations.addContact,
-}
+};
 
 
+ContactForm.defaultProps = {
+  name: '',
+  number: '',
+  items:[],
+};
+
+ContactForm.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      number: PropTypes.string,
+    }),
+  ),
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);

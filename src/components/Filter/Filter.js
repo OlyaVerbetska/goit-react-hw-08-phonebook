@@ -1,10 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
+import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import {contactsActions,contactsSelectors } from '../../redux/contacts';
+import { contactsActions, contactsSelectors } from '../../redux/contacts';
 
 import styles from '../Filter/Filter.module.css';
-
 
 const Filter = ({ onFilterValue, value }) => (
   <>
@@ -25,6 +25,11 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onFilterValue: e => dispatch(contactsActions.changeFilter(e.currentTarget.value)),
+  onFilterValue: e =>
+    dispatch(contactsActions.changeFilter(e.currentTarget.value)),
 });
-export default connect(mapStateToProps,mapDispatchToProps)(Filter);
+
+Filter.propTypes = {
+  value: PropTypes.string.isRequired,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Filter);

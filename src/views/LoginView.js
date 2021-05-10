@@ -5,7 +5,6 @@ import { authOperations } from '../redux/auth';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
-
 class LoginView extends Component {
   state = {
     email: '',
@@ -29,13 +28,8 @@ class LoginView extends Component {
       <div>
         <h1 className="title">Login Page</h1>
 
-        <form
-          onSubmit={this.handleSubmit}
-         autoComplete="off"
-        >
-
-
-<TextField
+        <form onSubmit={this.handleSubmit} autoComplete="off">
+          <TextField
             type="email"
             name="email"
             placeholder="Enter your email"
@@ -51,8 +45,7 @@ class LoginView extends Component {
             autoFocus
           />
 
-
-<TextField
+          <TextField
             type="password"
             name="password"
             placeholder="Create password"
@@ -67,9 +60,12 @@ class LoginView extends Component {
             autoComplete="off"
           />
 
-
-         
-<Button variant="contained" color="primary" type="submit" className="form-field">
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            className="form-field"
+          >
             Login
           </Button>
         </form>

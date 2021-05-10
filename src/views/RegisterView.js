@@ -5,8 +5,6 @@ import { authOperations } from '../redux/auth';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
-
-
 class RegisterView extends Component {
   state = {
     name: '',
@@ -31,7 +29,7 @@ class RegisterView extends Component {
       <div>
         <h1 className="title">Register Page</h1>
 
-        <form   onSubmit={this.handleSubmit} autoComplete="off">
+        <form onSubmit={this.handleSubmit} autoComplete="off">
           <TextField
             type="text"
             name="name"
@@ -61,7 +59,6 @@ class RegisterView extends Component {
             id="email"
             label="Email"
             autoComplete="off"
-                       
           />
 
           <TextField
@@ -79,7 +76,12 @@ class RegisterView extends Component {
             autoComplete="off"
           />
 
-          <Button variant="contained" color="primary" type="submit" className="form-field">
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            className="form-field"
+          >
             Register
           </Button>
         </form>

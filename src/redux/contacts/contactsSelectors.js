@@ -1,3 +1,4 @@
+
 import { createSelector } from '@reduxjs/toolkit';
 
 const getContacts = state => state.contacts.items;
@@ -13,6 +14,5 @@ const getVisibleContacts = createSelector(
     );
   },
 );
-
 //eslint-disable-next-line
 export default { getContacts, getFilter, getLoading, getVisibleContacts };

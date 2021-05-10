@@ -1,6 +1,10 @@
+.phonebook {
+    font-family: 'Truculenta', sans-serif;
+
+}
+
 .container {
   margin: 150px auto;
-  /* font-family: 'Truculenta', sans-serif; */
   max-width: 600px;
 }
 .title {

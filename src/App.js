@@ -40,7 +40,7 @@ class App extends Component {
         <Suspense fallback={<h1>Loading...</h1>}>
           <Switch>
             <Route exact path={routes.home}  component={HomeView} />
-            <PublicRoute path={routes.register} component={RegisterView} redirectTo = {routes.contacts} restricted/>
+            <PublicRoute path={routes.register} component={RegisterView} redirectTo = {routes.home} restricted/>
             <PublicRoute path={routes.login} component={LoginView} redirectTo = {routes.contacts} restricted/>
             <PrivateRoute path={routes.contacts} component={ContactsView} redirectTo = {routes.login}/>
             <Route component={NotFoundView} />
