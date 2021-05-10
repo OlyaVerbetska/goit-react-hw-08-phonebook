@@ -1,7 +1,7 @@
 //import { createSelector } from '@reduxjs/toolkit';
 
 
-const getIsAuthenticated = state => Boolean(state.auth.token);
+const getIsAuthenticated = state => state.auth.isAuthenticated;
 const getMail = state => state.auth.user.email;
 
 
