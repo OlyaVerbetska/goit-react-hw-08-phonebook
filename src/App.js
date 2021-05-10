@@ -34,8 +34,9 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="container">
+      <div>
         <AppBarMy />
+        <div className="container">
         <Suspense fallback={<h1>Loading...</h1>}>
           <Switch>
             <Route path={routes.home} exact component={HomeView} />
@@ -45,6 +46,7 @@ class App extends Component {
             <Route component={NotFoundView} />
           </Switch>
         </Suspense>
+        </div>
       </div>
     );
   }
