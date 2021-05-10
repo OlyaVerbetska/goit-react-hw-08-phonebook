@@ -3,6 +3,9 @@ import { Switch, Route } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 
+import Loader from 'react-loader-spinner';
+
+
 import routes from './routes';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
@@ -37,7 +40,13 @@ class App extends Component {
       <div>
         <AppBarMy />
         <div className="container">
-        <Suspense fallback={<h1>Loading...</h1>}>
+        <Suspense fallback={ <Loader
+              type="Rings"
+              color="orchid"
+              height={100}
+              width={200}
+              timeout={1000} //3 secs
+            />}>
           <Switch>
             <Route exact path={routes.home}  component={HomeView} />
             <PublicRoute path={routes.register} component={RegisterView} redirectTo = {routes.home} restricted/>
